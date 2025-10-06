@@ -1,14 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { createPost } = require("./post.controller");
-const authMiddleware = require("../../middlewares/authMiddleware");
-const upload = require("../../middlewares/upload");
+const { createPost, getAllPosts } = require("../controllers/post.controller");
+const authMiddleware = require("../middleware/authMiddleware");
+const upload = require("../../config/multerConfig"); // ✅ your multer setup
 
-router.post(
-  "/",
-  authMiddleware,
-  upload.array("media", 5), // up to 5 files
-  createPost
-);
+router.post("/", authMiddleware, upload.array("media"), createPost);
+router.get("/", authMiddleware, getAllPosts);
 
 module.exports = router;
