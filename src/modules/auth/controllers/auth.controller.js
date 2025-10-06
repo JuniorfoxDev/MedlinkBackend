@@ -13,7 +13,7 @@ const { autoVerifyID } = require("../../../utils/VerifyAuto"); // optional (Goog
 // 🔥 FIREBASE SETUP
 // =============================
 if (!admin.apps.length) {
-  const serviceAccount = require("../../../config/firebaseServiceKey.json");
+  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
