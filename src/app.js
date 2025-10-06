@@ -15,7 +15,7 @@ app.use(morgan("dev"));
 const authRoutes = require("./modules/auth/routes/auth.routes");
 const userRoutes = require("./modules/userProfile/userProfile.routes");
 const jobsRoutes = require("./modules/job/routes/job.routes");
-const postRoutes = require("./modules/posts/post.routes");
+const postRoutes = require("./modules/post/routes/post.routes");
 app.use("/api/posts", postRoutes);
 
 // Mount Routes
